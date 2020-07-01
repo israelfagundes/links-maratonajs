@@ -1,0 +1,14 @@
+{
+  "response.success": "Requisição efetuada com sucesso", 
+  "response.bad_request": "Requisição inválida", 
+  "response.unauthorized": "Não autorizado", 
+  "response.not_found": "Não encontrado", 
+  "response.internal_server_error": "Erro interno no servidor", 
+  "account.signup.password_confirmation.any.required": "Confirmação de senha é obrigatório.",
+  "account.signup.password.string.empty": "Senha é obrigatório.",
+  "account.signup.password.string.pattern.base": "Senha deve conter entre 6 e 16 caracteres e só pode conter letras e números.",
+  "account.signup.email.string.empty": "E-mail é obrigatório",
+  "account.signup.email.string.email": "E-mail inválido",
+  "account.signup.email.exists": "E-mail já cadastrado",
+  "account.signup.success": "Cadastro efetuado com sucesso"
+}
