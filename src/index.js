@@ -1,9 +1,15 @@
 const express = require('express');
 const db = require('./models');
 
+const authController = require('./controllers/auth');
+
 const app = express();
 
-app.get('/', (req, res) => {});
+app.use('/auth', authController);
+
+app.get('/',(req, res) => {
+  return res.json('API running...');
+})
 
 db.sequelize.sync().then(() => {
   app.listen(3001, () => {
