@@ -1,35 +1,55 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
+import Home from './screens/Home';
+import Signin from './screens/Signin';
+import Signup from './screens/Signup';
+import ManageLinks from './screens/Manage/Links';
+import ManageLinksCreate from './screens/Manage/Links/Create';
+import ManageLinksEdit from './screens/Manage/Links/Edit';
+
 const App = () => {
   return (
     <BrowserRouter>
       <div>
         <nav>
-          <ul>
-            <li>
-              <Link to="/sign-in">Sign in</Link>
+          <ul className="list-group list-group-horizontal">
+            <li className="list-group-item">
+              <Link to="/sign-in">Sign In</Link>
             </li>
-            <li>
-              <Link to="/sign-up">Sign up</Link>
+            <li className="list-group-item">
+              <Link to="/sign-up">Sign Up</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links/create">Create Link</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links/edit">Edit Link</Link>
             </li>
-            <li>
+            <li className="list-group-item">
               <Link to="/manage/links">Links</Link>
             </li>
           </ul>
         </nav>
         <Switch>
-          <Route path="/sign-in">Sign In</Route>
-          <Route path="/sign-up">Sign Up</Route>
-          <Route path="/manage/links/create">Create Link</Route>
-          <Route path="/manage/links/edit">Edit Link</Route>
-          <Route path="/manage/links">Links</Route>
+          <Route path="/" exact>
+            <Home />
+          </Route>
+          <Route path="/sign-in">
+            <Signin />
+          </Route>
+          <Route path="/sign-up">
+            <Signup />
+          </Route>
+          <Route path="/manage/links/create">
+            <ManageLinksCreate />
+          </Route>
+          <Route path="/manage/links/edit">
+            <ManageLinksEdit />
+          </Route>
+          <Route path="/manage/links">
+            <ManageLinks />
+          </Route>
         </Switch>
       </div>
     </BrowserRouter>
