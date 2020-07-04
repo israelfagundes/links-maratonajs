@@ -1,17 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from './SigninActions';
 
-const Signin = ({ account, signIn }) => {
+const Signin = ({ signIn, account }) => {
   const submitHandler = e => {
     e.preventDefault();
 
-    signIn({ email: 'israelfagundes5@gmail.com', password: '123456' });
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData);
+    
+    signIn(data);
   }
-  
-  console.log('SignIn.account :: ', account);
+    
+  if (account) return <Redirect to="/manage/links" />
   
   return (
     <div className="container h-100 pt-5">
@@ -20,11 +23,11 @@ const Signin = ({ account, signIn }) => {
         <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="">Email</label>
-            <input type="text" className="form-control" />
+            <input name="email" type="text" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="">Password</label>
-            <input type="password" className="form-control" />
+            <input name="password" type="password" className="form-control" />
           </div>
           <div>
             <button className="btn btn-primary btn-round">Submit</button>
