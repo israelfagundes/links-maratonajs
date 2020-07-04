@@ -51,7 +51,7 @@ const App = ({ initAccount }) => {
           <Route path="/manage/links/create">
             <ManageLinksCreate />
           </Route>
-          <Route path="/manage/links/edit">
+          <Route path="/manage/links/edit/:id">
             <ManageLinksEdit />
           </Route>
           <Route path="/manage/links">

@@ -33,7 +33,7 @@ const Links = ({ links, linkList }) => {
             <a href={link.url} rel="noreferrer noopener" target="_blank" className="text-primary clearfix">{link.url}</a>
           </div>
           <div className="ml-auto p-2 clearfix">
-            <span>Edit</span>
+            <Link to={`/manage/links/edit/${link.id}`}>Edit</Link>
             <span>Delete</span>
           </div>
         </div>
