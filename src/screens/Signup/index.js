@@ -1,10 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signUp } from './SignupActions';
 
-const Signup = ({ account, signUp }) => {
+const Signup = ({ signUp, account }) => {
   const submitHandler = e => {
     e.preventDefault();
     
@@ -13,6 +13,8 @@ const Signup = ({ account, signUp }) => {
         
     signUp(data);
   }
+
+  if (account) return <Redirect to="/manage/links" />
   
   return (
     <div className="container h-100 pt-5">
@@ -25,11 +27,11 @@ const Signup = ({ account, signUp }) => {
           </div>
           <div className="form-group">
             <label htmlFor="">Password</label>
-            <input type="password" name="password" className="form-control" />
+            <input required type="password" name="password" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="">Confirm Password</label>
-            <input type="password" name="password_confirmation" className="form-control" />
+            <input required type="password" name="password_confirmation" className="form-control" />
           </div>
           <div>
             <button className="btn btn-primary btn-round">Submit</button>
