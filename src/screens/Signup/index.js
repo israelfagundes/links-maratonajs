@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { signUp } from './SignupActions';
+import { signUp } from '../../actions/AccountActions';
 
 const Signup = ({ signUp, account }) => {
   const submitHandler = e => {
@@ -10,7 +10,8 @@ const Signup = ({ signUp, account }) => {
     
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-        
+    
+    if (data.email === "" || data.password === "" || data.password_confirmation === "") return false;
     signUp(data);
   }
 
@@ -23,7 +24,7 @@ const Signup = ({ signUp, account }) => {
         <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="">Email</label>
-            <input type="email" name="email" className="form-control" />
+            <input required type="email" name="email" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="">Password</label>
@@ -47,7 +48,7 @@ const Signup = ({ signUp, account }) => {
 }
 
 const mapStateToProps = state => {
-  return { account: state.signUp.account };
+  return { account: state.account.account };
 };
 
 export default connect(mapStateToProps, { signUp })(Signup);

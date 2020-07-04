@@ -2,19 +2,22 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { signIn } from './SigninActions';
+import { signIn } from '../../actions/AccountActions';
 
 const Signin = ({ signIn, account }) => {
+  if (account) return <Redirect to="/manage/links" />
+  
   const submitHandler = e => {
     e.preventDefault();
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData);
-    
+
+    if (data.email === "" || data.password === "") return false;
+
     signIn(data);
   }
     
-  if (account) return <Redirect to="/manage/links" />
   
   return (
     <div className="container h-100 pt-5">
@@ -23,11 +26,11 @@ const Signin = ({ signIn, account }) => {
         <form onSubmit={submitHandler}>
           <div className="form-group">
             <label htmlFor="">Email</label>
-            <input name="email" type="text" className="form-control" />
+            <input required name="email" type="text" className="form-control" />
           </div>
           <div className="form-group">
             <label htmlFor="">Password</label>
-            <input name="password" type="password" className="form-control" />
+            <input required name="password" type="password" className="form-control" />
           </div>
           <div>
             <button className="btn btn-primary btn-round">Submit</button>
@@ -43,7 +46,7 @@ const Signin = ({ signIn, account }) => {
 }
 
 const mapStateToProps = state => {
-  return { account: state.signIn.account };
+  return { account: state.account.account };
 }
 
 export default connect(mapStateToProps, { signIn })(Signin);
