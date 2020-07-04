@@ -1,6 +1,14 @@
-import { SIGN_IN, SIGN_UP, SIGN_OUT } from '../actions/AccountActions';
+import { SIGN_IN, SIGN_UP, SIGN_OUT, INIT_ACCOUNT } from '../actions/AccountActions';
 
-import { setAccount, setToken, setRefreshToken, removeAccount, removeToken, removeRefreshToken } from '../helpers/account';
+import { 
+  setAccount, 
+  setToken, 
+  setRefreshToken, 
+  removeAccount, 
+  removeToken, 
+  removeRefreshToken, 
+  getAccount
+} from '../helpers/account';
 
 const initialState = {
   account: null,
@@ -23,13 +31,19 @@ export default function(state = initialState, action) {
       if (refreshToken) setRefreshToken(refreshToken);
       
       return { ...state, account: payload };
-    case SIGN_OUT:
+    case SIGN_OUT: {
       removeAccount();
       removeToken();
       removeRefreshToken();
       
-      return { ...initialState, account: null };
+      return { ...state, account: null };
+    }
 
+    case INIT_ACCOUNT: {
+      const account = getAccount();
+      return { ...state, account };
+    }
+    
     default:
       return state;
   }
