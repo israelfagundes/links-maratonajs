@@ -3,6 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { signIn } from '../../actions/AccountActions';
+import { getFormData } from '../../helpers/form';
 
 const Signin = ({ signIn, account }) => {
   if (account) return <Redirect to="/manage/links" />
@@ -10,8 +11,7 @@ const Signin = ({ signIn, account }) => {
   const submitHandler = e => {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData);
+    const data = getFormData(e);
 
     if (data.email === "" || data.password === "") return false;
 
