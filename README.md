@@ -1,19 +1,20 @@
 # Links Manager
 
-### Backend da aplicação desenvolvida durante a MaratonaJS
+### Frontend da aplicação desenvolvida durante a MaratonaJS
 
 ## Techs
 Essa aplicação foi desevolvida utilizando:
-- :chart:	NodeJS com express
-- :game_die: Sequelize
+- :atom_symbol:	React
+- :atom_symbol:	Redux
+- :art:	Bootstrap 4
+- :art: [Now UI Kit](https://demos.creative-tim.com/now-ui-kit/index.html) 
  
 <br />
 
 ## Getting Started
 
-1. Tenha certeza de ter o MySQL instalado em seu computador
-2.  Instale as dependências do projeto utilizando o `yarn` ou o seu gerenciador de pacotes preferido.
-3. Rode o comando `yarn dev` para iniciar o servidor.
+1.  Instale as dependências do projeto utilizando o `yarn` ou o seu gerenciador de pacotes preferido.
+2. Rode o comando `yarn start` para iniciar o web client.
 
 <br />
 
