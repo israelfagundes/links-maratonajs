@@ -6,6 +6,7 @@
 Essa aplicação foi desevolvida utilizando:
 - :chart:	NodeJS com express
 - :game_die: Sequelize
+- :gear:	JSON Web Token
  
 <br />
 
