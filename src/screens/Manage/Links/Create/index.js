@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import Layout from '../../../Layouts/Manage';
 import { getFormData } from '../../../../helpers/form';
 import { linkCreate } from '../../../../actions/LinkActions';
+import FormCheck from '../../../../components/FormCheck';
 
 const Create = ({ link, linkCreate }) => {
   const submitHandler = e => {
@@ -34,13 +35,7 @@ const Create = ({ link, linkCreate }) => {
               <label htmlFor="">Url</label>
               <input required name="url" type="text" className="form-control" />
             </div>
-            <div className="form-group form-check">
-              <label className="form-check-label">
-                <input type="checkbox" name="isSocial"/>
-                <span className="form-check-sign"></span>
-                Is Social
-              </label>
-            </div>
+            <FormCheck name="isSocial" data={link} />
             <div>
               <button className="btn btn-primary btn-round">Submit</button>
             </div>

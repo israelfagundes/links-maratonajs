@@ -20,18 +20,25 @@ const Edit = ({ link, linkGet, linkUpdate }) => {
     e.preventDefault();
     const data = getFormData(e);
     linkUpdate(id, data);   
+  };
+
+  const redirect = e => {
+    e.preventDefault();
 
     return <Redirect to="/manage/links" />
-  };
+  }
   
   return (
     <Layout>
       <h1>Edit Link</h1>
         <div>
-          <form onSubmit={submitHandler}>
+          <form onSubmit={() => {
+            submitHandler();
+            redirect();
+          }}>
             <FormGroup label="Label" name="label" data={link} type="text" />
             <FormGroup label="Url" name="url" data={link} type="text" />
-            <FormCheck data={link} />
+            <FormCheck name="isSocial" data={link} />
             <div>
               <button className="btn btn-primary btn-round">Submit</button>
             </div>

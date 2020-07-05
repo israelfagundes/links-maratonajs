@@ -50,7 +50,9 @@ const Links = ({ links, linkList, setLinkToRemove, linkToRemove, linkRemove }) =
             </div>
             <div className="ml-auto p-2 clearfix">
               <Link to={`/manage/links/edit/${link.id}`}>Edit</Link>
-              <button className="btn btn-clear" onClick={() =>handleDelete(link)} >Delete</button>
+              <button onClick={() => handleDelete(link)} className="btn btn-danger btn-icon btn-round btn-add-margin">
+                <i className="now-ui-icons ui-1_simple-remove"></i>
+              </button>
             </div>
           </div>
         )}) : null}
