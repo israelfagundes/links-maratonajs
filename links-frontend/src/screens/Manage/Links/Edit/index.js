@@ -2,24 +2,27 @@ import React, { useEffect } from 'react';
 import { useParams, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import { linkGet, linkUpdate } from '../../../../actions/LinkActions';
+import { linkGet, linkUpdate, linkClear } from '../../../../actions/LinkActions';
 import { getFormData } from '../../../../helpers/form';
 
 import Layout from '../../../Layouts/Manage';
 import FormGroup from '../../../../components/FormGroup';
 import FormCheck from '../../../../components/FormCheck';
 
-const Edit = ({ link, linkGet, linkUpdate }) => {
+const Edit = ({ link, linkGet, linkUpdate, linkClear }) => {
   const { id } = useParams();
   
   useEffect(() => {
     linkGet(id);
+
+    return () => linkClear();
   }, [id, linkGet]);
   
   const submitHandler = e => {
     e.preventDefault();
     const data = getFormData(e);
-    linkUpdate(id, data);   
+    linkUpdate(id, data);
+    linkClear(); 
   };
 
   const redirect = e => {
@@ -52,4 +55,4 @@ const mapStateToProps = state => {
   return { link: state.link.link };
 }
 
-export default connect(mapStateToProps, { linkGet, linkUpdate })(Edit);
+export default connect(mapStateToProps, { linkGet, linkUpdate, linkClear })(Edit);
