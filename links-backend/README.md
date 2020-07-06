@@ -12,9 +12,11 @@ Essa aplicação foi desevolvida utilizando:
 
 ## Getting Started
 
-1. Tenha certeza de ter o MySQL instalado em seu computador
-2.  Instale as dependências do projeto utilizando o `yarn` ou o seu gerenciador de pacotes preferido.
-3. Rode o comando `yarn dev` para iniciar o servidor.
+1. Tenha certeza de ter o MySQL instalado em seu computador.
+2. Crie um novo database para a aplicação.
+2. Renomeie o arquivo `.env.example` para `.env` e preencha os campos com os valores corretos para o seu database.
+3.  Instale as dependências do projeto utilizando o `yarn` ou o seu gerenciador de pacotes preferido.
+4. Rode o comando `yarn dev` para iniciar o servidor.
 
 <br />
 
