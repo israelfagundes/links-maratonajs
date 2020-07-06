@@ -16,7 +16,7 @@ const Edit = ({ link, linkGet, linkUpdate, linkClear }) => {
     linkGet(id);
 
     return () => linkClear();
-  }, [id, linkGet]);
+  }, [id, linkGet, linkClear]);
   
   const submitHandler = e => {
     e.preventDefault();
