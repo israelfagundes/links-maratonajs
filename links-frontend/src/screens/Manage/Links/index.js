@@ -3,12 +3,13 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Layout from '../../Layouts/Manage';
-import { linkList, setLinkToRemove, linkRemove } from '../../../actions/LinkActions'; 
+import { linkList, setLinkToRemove, linkRemove, linkClear } from '../../../actions/LinkActions'; 
 
-const Links = ({ links, linkList, setLinkToRemove, linkToRemove, linkRemove }) => {
+const Links = ({ links, linkList, setLinkToRemove, linkToRemove, linkRemove, linkClear }) => {
   useEffect(() => {
     linkList();
-  }, [linkList]);
+    return () => linkClear();
+  }, [linkList, linkClear]);
  
   const cancelDelete = () => {
     setLinkToRemove(null);
@@ -79,4 +80,4 @@ const mapStateToProps = state => {
   };
 }
 
-export default connect(mapStateToProps, { linkList, setLinkToRemove, linkRemove })(Links);
+export default connect(mapStateToProps, { linkList, setLinkToRemove, linkRemove, linkClear })(Links);

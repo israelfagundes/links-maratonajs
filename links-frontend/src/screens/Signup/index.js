@@ -35,7 +35,7 @@ const Signup = ({ signUp, account }) => {
             <input required type="password" name="password_confirmation" className="form-control" />
           </div>
           <div>
-            <button className="btn btn-primary btn-round">Submit</button>
+            <button className="btn btn-primary btn-round">Sign Up</button>
           </div>
         </form>
         <div className="container text-center fixed-bottom pb-5">

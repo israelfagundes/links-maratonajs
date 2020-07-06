@@ -33,7 +33,7 @@ const Signin = ({ signIn, account }) => {
             <input required name="password" type="password" className="form-control" />
           </div>
           <div>
-            <button className="btn btn-primary btn-round">Submit</button>
+            <button className="btn btn-primary btn-round">Sign In</button>
           </div>
         </form>
         <div className="container text-center fixed-bottom pb-5">
